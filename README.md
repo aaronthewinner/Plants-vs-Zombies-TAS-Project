@@ -1,6 +1,2 @@
-
-# 植物大战僵尸脚本框架
-
-`pip install -U pvz`
-
-https://pvz.lmintlcx.com/scripts/
+# Plants-vs-Zombies-TAS-Project
+This TAS builds off of the "Python vs. Zombies" project created by the Chinese community for PvZ and uses it to try to complete the Any% Speedrun as fast as possible.  This project directly reads and writes to PvZ memory in order to simulate what perfect rng might look like.  
