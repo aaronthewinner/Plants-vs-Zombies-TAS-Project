@@ -1,0 +1,58 @@
+from pvz import *
+from pvz.extra import *
+import time
+from speedrunmethods import *
+while(game_ui() != 2):
+    Sleep(1)
+start_time = time.time()
+Sleep(350)
+waves = ReadMemory("int",0x6a9ec0, 0x768, 0x6b4,array=1000)
+waves = list(waves)
+waves[150] = 0
+waves[151] = 0
+waves[152] = -1
+waves[200] = 0
+waves[201] = 0
+waves[202] = -1
+waves[250:255] = [0,0,0,0,1,-1]
+waves = tuple(waves)
+while(game_ui() != 3):
+    Sleep(1)
+update_game_scene()
+AutoCollect(interval_cs=1)
+FastSun()
+FastPlants()
+thirtyFiveRule(6)
+WriteMemory("int",waves,0x6a9ec0, 0x768, 0x6b4)
+
+Card(2, (3,1))
+PlantWhenAvailable(2,50,(3,2))
+PlantWhenAvailable(2,50,(3,3))
+
+Prejudge(1,1)
+WriteZombies([0],[2])
+Prejudge(75,1)
+Card(1, (2,8))
+
+Prejudge(0,2)
+WriteZombies([0],[4])
+Prejudge(275,2)
+Card(1, (4,8))
+
+Prejudge(0,3)
+WriteZombies([0],[3])
+PlantWhenAvailable(1,100,(3,6))
+
+Prejudge(0,4)
+WriteZombies([0,0],[3,4])
+PlantWhenAvailable(1,100,(3,7))
+
+Prejudge(0,5)
+WriteZombies([0,0],[2,2])
+PlantWhenAvailable(2,50,(4,1))
+Prejudge(1,6)
+WriteZombies([0,0,0,0,1],[4,4,4,4,4])
+
+while(game_ui() == 3):
+    Sleep(1)
+print(time.time()-start_time)
