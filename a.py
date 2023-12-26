@@ -1,5 +1,3 @@
-import os
-import time
-os.system("ncat chal.pctf.competitivecyber.club 4757")
-time.sleep(1)
-os.system("pctf")
+from pvz import *
+from pvz.extra import *
+print(ReadMemory("bool",0x6A9EC0,0x768, 0x5603))
