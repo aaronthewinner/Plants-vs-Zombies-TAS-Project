@@ -30,7 +30,7 @@ for i in range(5000):
     except:
         break
 
-print(df.size)
+print(i)
 a = df.groupby(["Preview Cones","Preview Normals"])
 print(a.size())
 print(a.aggregate("mean"))
