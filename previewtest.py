@@ -27,7 +27,7 @@ for i in range(5000):
                 preview.append((int)(zombie_type))
         df["Preview Normals"][i] = preview.count(0)
         df["Preview Cones"][i] = preview.count(2)
-    except:
+    except Exception:
         break
 
 print(i)
