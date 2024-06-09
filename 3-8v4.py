@@ -79,7 +79,7 @@ WriteZombies([0],[1],[0.37])
 PlantWhenAvailable(1,50,(1,6))
 
 Prejudge(1,4)
-WriteZombies([0,0],[1,6],[0.37,0.328])
+WriteZombies([0,0],[1,6],[0.37,0.33])
 PlantWhenAvailable(1,50,(1,7))
 PlantWhenAvailable(3,50,(1,9))
 
@@ -93,7 +93,7 @@ PlantWhenAvailable(1,50,(1,8))
 Prejudge(1,6)
 WriteZombies([2],[3],[0.37])
 PlantWhenAvailable(6,25,(3,9))
-Sleep(550)
+Sleep(525)
 use_shovel(3,9)
 
 Prejudge(1,7)
@@ -120,7 +120,7 @@ WriteZombies([0,0,0,0,0,0,0,1,2],[4,4,4,4,6,6,6,6,6],[0.37,0.37,0.37,0.37,0.37,0
 Prejudge(1,11)
 WriteZombies([0,14],[3,3],[0.37,0.91])
 PlantWhenAvailable(6,25,(3,9))
-Delay(420)
+Delay(415)
 use_shovel(3,9)
 
 Prejudge(1,12)
@@ -154,7 +154,6 @@ WriteZombies([14,14],[4,4],[0.91,0.91])
 
 Prejudge(1,19)
 WriteZombies([0,2,2,2],[5,5,5,5],[0.37,0.37,0.37,0.37])
-PlantWhenAvailable(5,150,(5,9))
 
 Prejudge(1,20)
 WriteZombies([0,0,0,0,0,0,0,1,2,14,14],[3,3,3,3,3,3,3,3,3,3,3],[0.37,0.37,0.37,0.37,0.37,0.37,0.37,0.45,0.37,0.91,0.91])

@@ -905,14 +905,12 @@ def asm_code_inject_safely():
     else:
         write_memory("unsigned char", 0xFE, 0x00552244)
     if is_valid():
-        thread_sleep_for(1)
         asm_code_inject()
-    
     if pvz_ver() == "1.0.0.1051":
         write_memory("unsigned char", 0xDB, 0x00552014)
     else:
         write_memory("unsigned char", 0xDB, 0x00552244)
-
+    time.sleep(0.01)
 
 ### 键盘操作
 

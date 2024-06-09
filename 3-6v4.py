@@ -2,32 +2,14 @@ from pvz import *
 from pvz.extra import *
 import time
 from speedrunmethods import *
-WriteMemory("int",1,0x6A9EC0,0x82C,0x214)
+
 while(game_ui() != 2):
     Sleep(1)
 start_time = time.time()
 update_game_scene()
 while(read_memory("int", 0x6A9EC0, 0x768,0x144,0xC) != 0):
     Sleep(0.1)
-select_all_seeds([1,16,17,4,6,19,20])
-
-safe_click()
-left_down(720,580)
-Sleep(2)
-left_up(720,580)
-left_click(430,280)
-while(ReadMemory("int",0x6A9EC0,0x844) != 4):
-      Sleep(0.1)
-left_click(430,280)
-
-press_enter()
-press_enter()
-left_click(600,280)
-press_enter()
-left_click(450,560)
-
-LeftClick(30,240)
-lets_rock()
+select_seeds_and_lets_rock((1,16,17,4,6,19,20))
 waves = ReadMemory("int",0x6a9ec0, 0x768, 0x6b4,array=1000)
 waves = list(waves)
 waves[150:152] = [0,0,-1]
@@ -37,16 +19,16 @@ waves[300:302] = [0,2,-1]
 waves[350:352] = [0,2,-1]
 waves[400:402] = [0,2,-1]
 waves[450:459] = [0,0,0,0,0,0,0,1,2,-1]
-waves[500:502] = [0,14,-1]
+waves[500:502] = [12,-1]
 waves[550:552] = [2,2,-1]
 waves[600:603] = [0,2,2,-1]
 waves[650:653] = [0,2,2,-1]
 waves[700:703] = [0,2,2,-1]
 waves[750:753] = [2,2,2,-1]
 waves[800:803] = [2,2,2,-1]
-waves[850:853] = [14,14,-1]
-waves[900:903] = [0,2,2,2,-1]
-waves[950:960] = [0,0,0,0,0,0,0,1,2,14,14,-1]
+waves[850:853] = [2,2,2,-1]
+waves[900:903] = [12,-1]
+waves[950:960] = [0,0,0,0,0,0,0,0,0,0,1,2,12,-1]
 
 waves = tuple(waves)
 WriteMemory("int",waves,0x6a9ec0, 0x768, 0x6b4)
@@ -79,7 +61,7 @@ WriteZombies([0],[1],[0.37])
 PlantWhenAvailable(1,50,(1,6))
 
 Prejudge(1,4)
-WriteZombies([0,0],[1,6],[0.37,0.328])
+WriteZombies([0,0],[1,6],[0.37,0.33])
 PlantWhenAvailable(1,50,(1,7))
 PlantWhenAvailable(3,50,(1,9))
 
@@ -93,7 +75,7 @@ PlantWhenAvailable(1,50,(1,8))
 Prejudge(1,6)
 WriteZombies([2],[3],[0.37])
 PlantWhenAvailable(6,25,(3,9))
-Sleep(550)
+Sleep(526)
 use_shovel(3,9)
 
 Prejudge(1,7)
@@ -115,13 +97,11 @@ PlantWhenAvailable(1,50,(2,3))
 Prejudge(1,10)
 WriteZombies([0,0,0,0,0,0,0,1,2],[4,4,4,4,6,6,6,6,6],[0.37,0.37,0.37,0.37,0.37,0.37,0.37,0.45,0.37])
 
-
+use_shovel(5,9)
+PlantWhenAvailable(5,150,(5,9))
 
 Prejudge(1,11)
-WriteZombies([0,14],[3,3],[0.37,0.91])
-PlantWhenAvailable(6,25,(3,9))
-Delay(420)
-use_shovel(3,9)
+WriteZombies([12],[5])
 
 Prejudge(1,12)
 WriteZombies([2,2],[6,6],[0.37,0.37])
@@ -150,15 +130,17 @@ WriteZombies([2,2,2],[1,1,1],[0.37,0.37,0.37])
 PlantWhenAvailable(3,50,(5,9))
 
 Prejudge(1,18)
-WriteZombies([14,14],[4,4],[0.91,0.91])
+WriteZombies([2,2,2],[5,5,5],[0.37,0.37,0.37])
 
 Prejudge(1,19)
-WriteZombies([0,2,2,2],[5,5,5,5],[0.37,0.37,0.37,0.37])
+WriteZombies([12],[5])
 PlantWhenAvailable(5,150,(5,9))
 
 Prejudge(1,20)
-WriteZombies([0,0,0,0,0,0,0,1,2,14,14],[3,3,3,3,3,3,3,3,3,3,3],[0.37,0.37,0.37,0.37,0.37,0.37,0.37,0.45,0.37,0.91,0.91])
+WriteZombies([0,0,0,0,0,0,0,0,0,0,1,2,12],[3,3,3,3,3,3,3,3,3,3,3,3,2])
 SetAmbushZombies([(3,8),(3,7),(3,6)])
+use_shovel(2,9)
+PlantWhenAvailable(5,150,(2,9))
 Prejudge(205,20)
 PlantWhenAvailable(2,25,(3,9))
 PlantWhenAvailable(7,125,(3,9))
